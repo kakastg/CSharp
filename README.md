@@ -1,3 +1,4 @@
 # CSharp
-Studia Technologie programowania
+Studia
+Technologie programowania
 Kacper Wieczorek s18426
