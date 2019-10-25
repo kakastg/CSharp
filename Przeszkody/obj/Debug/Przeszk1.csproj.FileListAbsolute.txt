@@ -28,3 +28,12 @@ Z:\c#\csharp\Przeszkody\obj\Debug\Przeszk1.csproj.GenerateResource.cache
 Z:\c#\csharp\Przeszkody\obj\Debug\Przeszk1.csproj.CoreCompileInputs.cache
 Z:\c#\csharp\Przeszkody\obj\Debug\Przeszk1.exe
 Z:\c#\csharp\Przeszkody\obj\Debug\Przeszk1.pdb
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\bin\Debug\Przeszk1.exe.config
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\bin\Debug\Przeszk1.exe
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\bin\Debug\Przeszk1.pdb
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\obj\Debug\Przeszk1.csprojAssemblyReference.cache
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\obj\Debug\Przeszk1.Form1.resources
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\obj\Debug\Przeszk1.Properties.Resources.resources
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\obj\Debug\Przeszk1.csproj.GenerateResource.cache
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\obj\Debug\Przeszk1.exe
+C:\Users\kakas\Desktop\Studia\CSharp\Przeszkody\obj\Debug\Przeszk1.pdb

@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace Przeszk1
 {
     public partial class Form1 : Form
     {
+        int ms = 0, s = 0, m = 0;
+        int wynik=0;
         Color kolorPrzeszkody = Color.DarkOliveGreen, kolorSterownika = Color.Crimson;
         bool zmienna;
         Control.ControlCollection pola;
@@ -34,6 +37,25 @@ namespace Przeszk1
                     pole.Enabled = false;
                     this.pnlPanel.Controls.Add(pole);
                 }
+            highscore.Text = "Highscore |" + wynik + "|";
+        }
+
+        private void gametime_Tick(object sender, EventArgs e)
+        {
+            ms += 1;
+            if (ms == 9)
+            {
+                ms = 0;
+                s += 1;
+                timerlabel.Text = "Time "+m.ToString() + "m : " + s.ToString()+"s";
+                if (s == 59)
+                {
+                    s = 0;
+                    m += 1;
+                    timerlabel.Text = "Time " + m.ToString() + "m : " + s.ToString() + "s";
+     
+                }
+            }
         }
 
         private void PnlPanel_Paint(object sender, PaintEventArgs e)
@@ -41,9 +63,23 @@ namespace Przeszk1
 
         }
 
+        private void resetbutton_Click(object sender, EventArgs e)
+        {
+            btnStart.Enabled = true;
+            resetbutton.Enabled = false;
+            resetbutton.Visible = false;
+            ms = 0;
+            s = 0;
+            m = 0;
+            timerlabel.Text = "";
+            for (int i = 0; i <= 54; i++)
+                pola[i].BackColor = SystemColors.Window;
+            timer1.Interval = 500;
+        }
+
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval =(int) (timer1.Interval * 0.99);
+            timer1.Interval = (int)(timer1.Interval * 0.99);
             for (int i = 54; i > 4; i--)
                 pola[i].BackColor = pola[i - 5].BackColor;
             for (int i = 0; i < 5; i++)
@@ -53,7 +89,10 @@ namespace Przeszk1
             {
                 pola[pozycja + 50].BackColor = Color.Black;
                 timer1.Enabled = false;
+                gametime.Stop();
                 MessageBox.Show("Game Over");
+                resetbutton.Visible = true;
+                resetbutton.Enabled = true;
             }
             else
                 pola[pozycja + 50].BackColor = kolorSterownika;
@@ -62,9 +101,12 @@ namespace Przeszk1
                 for (int i = 0; i < 4; i++)
                     pola[losowe.Next(0, 5)].BackColor = kolorPrzeszkody;
             }
+            
         }
+    
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+
+    private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             pola[pozycja + 50].BackColor = SystemColors.Window;
             if (e.KeyCode == Keys.Left && pozycja>0 && pola[pozycja + 50 - 1].BackColor != kolorPrzeszkody)
@@ -76,9 +118,11 @@ namespace Przeszk1
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            btnStart.Enabled = false;  
+            btnStart.Enabled = false;
+            resetbutton.Enabled = false;
             pola = this.pnlPanel.Controls;
             timer1.Enabled = true;
+            gametime.Start();
             pozycja = 2;
             pola[pozycja + 50].BackColor = kolorSterownika;
             
