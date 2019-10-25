@@ -15,8 +15,8 @@ namespace Przeszk1
     {
         int ms = 0, s = 0, m = 0;
         int counter = 0;
-        double score = 0d;
-        double temp = 0d;
+        int score = 0;
+        int temp = 0;
         Color kolorPrzeszkody = Color.DarkOliveGreen, kolorSterownika = Color.Crimson;
         bool zmienna;
         Control.ControlCollection pola;
@@ -79,7 +79,8 @@ namespace Przeszk1
                 pola[i].BackColor = SystemColors.Window;
             timer1.Interval = 500;
             temp = 0;
-            counter = 0;
+            counter = -1;
+            highscore.Text = "Highscore |" + score + "|";
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -96,15 +97,14 @@ namespace Przeszk1
                 timer1.Enabled = false;
                 gametime.Stop();
                 MessageBox.Show("Game Over");
-                temp -= 1d;
-                resetbutton.Visible = true;
-                resetbutton.Enabled = true;
                 if (temp > score)
                     score = temp;
                 else
                     temp = score;
                 highscore.Text = "Highscore |" + score + "|";
-
+                temp -= 1;
+                resetbutton.Visible = true;
+                resetbutton.Enabled = true;
 
             }
             else
@@ -115,9 +115,9 @@ namespace Przeszk1
                     pola[losowe.Next(0, 5)].BackColor = kolorPrzeszkody;
             }
             counter += 1;
-            if (counter > 9)
-                temp += 0.5d;
-            highscore.Text = "Highscore |" + temp + "|";
+            if (counter > 10 && counter % 2 != 0)
+                temp += 1;
+            highscore.Text = "Score |" + temp + "|";
         }
     
 
