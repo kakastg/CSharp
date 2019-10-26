@@ -17,15 +17,20 @@ namespace Funkcjefinansowe
         }
         public double wyliczStope(double kwotaPoczatkowa, double kwotaKoncowa)
         {
-            if (kwotaPoczatkowa > 0 && kwotaKoncowa>0)
-                return Math.Round(kwotaKoncowa / kwotaPoczatkowa - 1,6);
-            else
+            if (kwotaPoczatkowa == 0)
                 throw new ArithmeticException("Dzielenie przez zero!!!!");
+            else
+                return Math.Round(kwotaKoncowa / kwotaPoczatkowa - 1, 6);
         }
 
-        public double oprocentowanieSkladane(double kwotaPoczatkowa, double kwotaKoncowa, double oprocentowanie, int okres, int kapitalizacja)
+        public double oprocentowanieSkladane(double kwotaPoczatkowa, double kwotaKoncowa, double oprocentowanie, double okres, double kapitalizacja)
         {
-            throw new NotImplementedException();
+            if (kapitalizacja > 0)
+                return Math.Pow(kwotaPoczatkowa*(1+(oprocentowanie/kapitalizacja)),(okres*kapitalizacja));
+            else
+                throw new ArithmeticException("Dzielenie przez zero!!!!");
+
+
         }
     }
 }

@@ -4,3 +4,8 @@ Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcjefinansowe.csprojAssemblyReferenc
 Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcjefinansowe.csproj.CoreCompileInputs.cache
 Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcje finansowe.dll
 Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcje finansowe.pdb
+C:\Users\kakas\Desktop\Studia\CSharp\Funkcje finansowe\bin\Debug\Funkcje finansowe.dll
+C:\Users\kakas\Desktop\Studia\CSharp\Funkcje finansowe\bin\Debug\Funkcje finansowe.pdb
+C:\Users\kakas\Desktop\Studia\CSharp\Funkcje finansowe\obj\Debug\Funkcjefinansowe.csprojAssemblyReference.cache
+C:\Users\kakas\Desktop\Studia\CSharp\Funkcje finansowe\obj\Debug\Funkcje finansowe.dll
+C:\Users\kakas\Desktop\Studia\CSharp\Funkcje finansowe\obj\Debug\Funkcje finansowe.pdb
