@@ -26,7 +26,7 @@ namespace Funkcjefinansowe
         public double oprocentowanieSkladane(double kwotaPoczatkowa, double kwotaKoncowa, double oprocentowanie, double okres, double kapitalizacja)
         {
             if (kapitalizacja > 0)
-                return Math.Pow(kwotaPoczatkowa*(1+(oprocentowanie/kapitalizacja)),(okres*kapitalizacja));
+                return Math.Round(Math.Pow(kwotaPoczatkowa*(1+(oprocentowanie/kapitalizacja)),(okres*kapitalizacja)),2);
             else
                 throw new ArithmeticException("Dzielenie przez zero!!!!");
 
