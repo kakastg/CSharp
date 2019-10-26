@@ -107,23 +107,11 @@ namespace Funkcjefinansowe.Tests
             //Assert
             Assert.That(ex.Message == "Dzielenie przez zero!!!!");
         }
-        [Test]
-        public void oprocentowanieSkladane_dzieleniePrzezZero_Exception()
-        {
-            //Arrange
-            var inw = new Inwestycje();
-
-            //Act
-            var ex = Assert.Throws<ArithmeticException>(
-            () => inw.oprocentowanieSkladane(500.0, 1000.0,0.2,5,0));
-
-            //Assert
-            Assert.That(ex.Message == "Dzielenie przez zero!!!!");
-        }
-        [TestCase(1000.0, 4247.85, 0.15, 10, 2)]
-        [TestCase(1000.0, 4360.38, 0.15, 10, 4)]
-        [TestCase(1300000.0, 2111559.5, 0.165, 3, 4)]
-        [TestCase(1600000.0, 2210853.6, 0.165, 2, 4)]
+       
+        [TestCase(1000.0, 4247.85, 0.15, 10,2)]
+        [TestCase(1000.0, 4360.38, 0.15, 10,4)]
+        [TestCase(1300000.0, 2111560.48, 0.165, 3, 4)]
+        [TestCase(1600000.0, 2210854.17, 0.165, 2, 4)]
         [TestCase(2000.0, 2332.8, 0.08, 2, 1)]
         public void oprocentowanieSkladane_RozneWarosci_Calculated(double kwotaPoczatkowa, double kwotaKoncowa, double oprocentowanie, double okres, double kapitalizacja)
         {
@@ -131,7 +119,7 @@ namespace Funkcjefinansowe.Tests
             var inw = new Inwestycje();
 
             //Act
-            double kwota = inw.oprocentowanieSkladane(kwotaPoczatkowa, kwotaKoncowa, oprocentowanie,  okres,  kapitalizacja);
+            double kwota = inw.oprocentowanieSkladane(kwotaPoczatkowa, kwotaKoncowa, oprocentowanie,  okres, kapitalizacja);
             //Assert
             Assert.AreEqual(kwota, kwotaKoncowa);
         }
