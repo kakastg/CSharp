@@ -1,0 +1,6 @@
+Z:\c#\csharp\Funkcje finansowe\bin\Debug\Funkcje finansowe.dll
+Z:\c#\csharp\Funkcje finansowe\bin\Debug\Funkcje finansowe.pdb
+Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcjefinansowe.csprojAssemblyReference.cache
+Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcjefinansowe.csproj.CoreCompileInputs.cache
+Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcje finansowe.dll
+Z:\c#\csharp\Funkcje finansowe\obj\Debug\Funkcje finansowe.pdb

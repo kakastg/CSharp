@@ -1,0 +1,16 @@
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\Funkcjefinansowe.Tests.dll
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\Funkcjefinansowe.Tests.pdb
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\Funkcje finansowe.dll
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\nunit.framework.dll
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\Funkcje finansowe.pdb
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\nunit.framework.pdb
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\nunit.framework.xml
+Z:\c#\csharp\Funkcjefinansowe.Tests\obj\Debug\Funkcjefinansowe.Tests.csprojAssemblyReference.cache
+Z:\c#\csharp\Funkcjefinansowe.Tests\obj\Debug\Funkcjefinansowe.Tests.csproj.CoreCompileInputs.cache
+Z:\c#\csharp\Funkcjefinansowe.Tests\obj\Debug\Funkcjefinansowe.Tests.csproj.CopyComplete
+Z:\c#\csharp\Funkcjefinansowe.Tests\obj\Debug\Funkcjefinansowe.Tests.dll
+Z:\c#\csharp\Funkcjefinansowe.Tests\obj\Debug\Funkcjefinansowe.Tests.pdb
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\NUnit3.TestAdapter.dll
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\NUnit3.TestAdapter.pdb
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\nunit.engine.dll
+Z:\c#\csharp\Funkcjefinansowe.Tests\bin\Debug\nunit.engine.api.dll
