@@ -1,0 +1,14 @@
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\NUnit3.TestAdapter.dll
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\NUnit3.TestAdapter.pdb
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\nunit.engine.dll
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\nunit.engine.api.dll
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\Liczba.Wyko.exe.config
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\Liczba.Wyko.exe
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\Liczba.Wyko.pdb
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\Liczba.dll
+Z:\c#\csharp\Liczba.Wyko\bin\Debug\Liczba.pdb
+Z:\c#\csharp\Liczba.Wyko\obj\Debug\Liczba.Wyko.csprojAssemblyReference.cache
+Z:\c#\csharp\Liczba.Wyko\obj\Debug\Liczba.Wyko.csproj.CoreCompileInputs.cache
+Z:\c#\csharp\Liczba.Wyko\obj\Debug\Liczba.Wyko.csproj.CopyComplete
+Z:\c#\csharp\Liczba.Wyko\obj\Debug\Liczba.Wyko.exe
+Z:\c#\csharp\Liczba.Wyko\obj\Debug\Liczba.Wyko.pdb
