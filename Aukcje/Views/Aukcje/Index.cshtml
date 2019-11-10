@@ -1,0 +1,50 @@
+﻿@model List<Aukcje.Models.Aukcja>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Aukcje.Models.Aukcja.liczbaAukcji < 1)
+{
+    <h1>NIE MA AUKCJI</h1>
+}
+else
+{
+<h2>Lista aukcji</h2>
+<table id="aukcje">
+    <tr>
+        <th>ID</th>
+        <th>Przedmiot</th>
+        <th>Cena wywoławcza</th>
+        <th>Aktualna cena</th>
+        <th>Start Aukcji</th>
+        <th>Koniec Aukcji</th>
+        <th>Status</th>
+        <th>Sprzedający</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var aukcja in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => aukcja.aukcjaID)</td>
+                <td>@Html.DisplayFor(modelItem => aukcja.przedmiot)</td>
+                <td>@Html.DisplayFor(modelItem => aukcja.cenaWywolawcza)</td>
+                <td>
+                    @if (aukcja.ceny.Count > 0)
+                    {
+                        @Html.DisplayFor(modelItem => aukcja.ceny[aukcja.ceny.Count - 1])
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => aukcja.dataStart)</td>
+                <td>@Html.DisplayFor(modelItem => aukcja.dataZakonczenia)</td>
+                <td>@Html.DisplayFor(modelItem => aukcja.status)</td>
+                <td>@Html.DisplayFor(modelItem => aukcja.sprzedajacy)</td>
+            </tr>
+        }
+    }
+    
+    
+</table>
+
+
