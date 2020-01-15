@@ -71,6 +71,12 @@ namespace ProjectForm
             StartButton.Enabled = true;
             EndButton.Enabled = false;
             SwitchingTimer.Enabled = false;
+            for (int i = 0; i < 49; i++)
+            {
+                pola[i].Visible = false;
+            }
+            points = 0;
+            SwitchingTimer.Interval = 2000;
         }
 
         private void GameTime_Tick_1(object sender, EventArgs e)
@@ -96,6 +102,17 @@ namespace ProjectForm
             int losowy = random.Next(0, 49);
             pola[losowy].Visible = true;
             TickTime.Text = SwitchingTimer.Interval.ToString();
+            
+        }
+
+        private void pnlPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && sender != pola)
+            {
+                TestLabel.Text = "LOSE";
+                EndButton_Click_1(sender, e);
+                MessageBox.Show("You lose");
+            }
         }
     }
 }

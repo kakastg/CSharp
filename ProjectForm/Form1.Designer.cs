@@ -38,6 +38,7 @@
             this.SwitchingTimer = new System.Windows.Forms.Timer(this.components);
             this.DebugLabel = new System.Windows.Forms.Label();
             this.TickTime = new System.Windows.Forms.Label();
+            this.TestLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StartButton
@@ -80,6 +81,7 @@
             this.pnlPanel.Size = new System.Drawing.Size(757, 400);
             this.pnlPanel.TabIndex = 3;
             this.pnlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPanel_Paint);
+            this.pnlPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlPanel_MouseClick);
             // 
             // SwitchingTimer
             // 
@@ -104,6 +106,15 @@
             this.TickTime.TabIndex = 5;
             this.TickTime.Text = "Switching Timer";
             // 
+            // TestLabel
+            // 
+            this.TestLabel.AutoSize = true;
+            this.TestLabel.Location = new System.Drawing.Point(721, 420);
+            this.TestLabel.Name = "TestLabel";
+            this.TestLabel.Size = new System.Drawing.Size(35, 13);
+            this.TestLabel.TabIndex = 6;
+            this.TestLabel.Text = "TEST";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,6 +122,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(781, 450);
+            this.Controls.Add(this.TestLabel);
             this.Controls.Add(this.TickTime);
             this.Controls.Add(this.DebugLabel);
             this.Controls.Add(this.pnlPanel);
@@ -135,6 +147,7 @@
         private System.Windows.Forms.Timer SwitchingTimer;
         private System.Windows.Forms.Label DebugLabel;
         private System.Windows.Forms.Label TickTime;
+        private System.Windows.Forms.Label TestLabel;
     }
 }
 
