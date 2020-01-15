@@ -12,10 +12,11 @@ namespace ProjectForm
 {
     public partial class Form1 : Form
     {
-        int seconds = 0;
+        public int seconds = 0;
         Control.ControlCollection pola;
         Random random = new Random();
-        int points = 0;
+        public int points = 0;
+        public String login;
 
         public Control.ControlCollection Pola { get => pola; set => pola = value; }
 
@@ -55,6 +56,7 @@ namespace ProjectForm
 
         private void StartButton_Click_1(object sender, EventArgs e)
         {
+            login = Microsoft.VisualBasic.Interaction.InputBox("Enter your Name:", "Name");
             GameTime.Enabled = true;
             StartButton.Enabled = false;
             EndButton.Enabled = true;
@@ -65,6 +67,7 @@ namespace ProjectForm
 
         private void EndButton_Click_1(object sender, EventArgs e)
         {
+            
             GameTimeBox.Text = seconds.ToString() + " seconds";
             GameTime.Enabled = false;
             seconds = 0;

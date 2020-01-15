@@ -51,6 +51,8 @@ C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\roslyn\vbc.rsp
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\roslyn\VBCSCompiler.exe
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\Antlr3.Runtime.dll
+C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\EntityFramework.dll
+C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\EntityFramework.SqlServer.dll
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\Newtonsoft.Json.dll
@@ -65,6 +67,8 @@ C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\System.Web.WebPages.Razor.dl
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\WebGrease.dll
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\ProjectForm.pdb
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\ProjectForm.exe.config
+C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\EntityFramework.xml
+C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\EntityFramework.SqlServer.xml
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\System.Web.Helpers.xml
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\System.Web.Mvc.xml
 C:\Users\kakas\Desktop\Studia\CSharp\ProjectWeb\bin\System.Web.Optimization.xml

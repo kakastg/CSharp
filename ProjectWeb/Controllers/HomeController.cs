@@ -10,7 +10,6 @@ namespace ProjectWeb.Controllers
     {
         public ActionResult Index()
         {
-
             return View();
         }
 
