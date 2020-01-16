@@ -117,6 +117,11 @@ namespace ProjectForm
                 MessageBox.Show("You lose");
             }
         }
+        public void newForm()
+        {
+            var form = new Form1();
+            form.Visible = true;
+        }
     }
 }
 

@@ -6,18 +6,30 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProjectWeb.DAL;
 using ProjectWeb.Models;
+using ProjectForm;
+using System.Windows.Forms;
 
 namespace ProjectWeb.Controllers
 {
     public class ScoresController : Controller
     {
-        private ScoreDB db = new ScoreDB();
+        private ScoreContext db = new ScoreContext();
 
         // GET: Scores
+        
         public ActionResult Index()
         {
-            return View(db.scoreboard.ToList());
+            return View(db.Wyniki.ToList());
+        }
+        public string Index(Score data)
+        {
+            return "saved";
+        }
+        public JsonResult CheckValidIP(string clientIp)
+        {
+            return Json(clientIp == "127.0.0.1", JsonRequestBehavior.AllowGet);
         }
 
         // GET: Scores/Details/5
@@ -27,7 +39,7 @@ namespace ProjectWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Score score = db.scoreboard.Find(id);
+            Score score = db.Wyniki.Find(id);
             if (score == null)
             {
                 return HttpNotFound();
@@ -50,7 +62,7 @@ namespace ProjectWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.scoreboard.Add(score);
+                db.Wyniki.Add(score);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +77,7 @@ namespace ProjectWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Score score = db.scoreboard.Find(id);
+            Score score = db.Wyniki.Find(id);
             if (score == null)
             {
                 return HttpNotFound();
@@ -96,7 +108,7 @@ namespace ProjectWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Score score = db.scoreboard.Find(id);
+            Score score = db.Wyniki.Find(id);
             if (score == null)
             {
                 return HttpNotFound();
@@ -109,8 +121,8 @@ namespace ProjectWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Score score = db.scoreboard.Find(id);
-            db.scoreboard.Remove(score);
+            Score score = db.Wyniki.Find(id);
+            db.Wyniki.Remove(score);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -122,6 +134,11 @@ namespace ProjectWeb.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public void Start_Button(object sender, EventArgs e)
+        {
+            var form = new Form1();
+            form.newForm();
         }
     }
 }

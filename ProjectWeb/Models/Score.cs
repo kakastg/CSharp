@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-
+using System.Web.Mvc;
+using ProjectForm;
 
 namespace ProjectWeb.Models
 {
@@ -23,6 +24,9 @@ namespace ProjectWeb.Models
         public int points { get; set; }
         [Required]
         public int seconds { get; set; }
+        [Required]
+        [Remote("CheckValidIP","Scores")]
+        public string ClientIp { get; set; }
 
 
         private class CheckScoreAttribute : ValidationAttribute
