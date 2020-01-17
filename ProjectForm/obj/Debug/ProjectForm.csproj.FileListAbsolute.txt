@@ -1,9 +1,0 @@
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\obj\Debug\ProjectForm.csprojAssemblyReference.cache
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\obj\Debug\ProjectForm.Properties.Resources.resources
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\obj\Debug\ProjectForm.csproj.GenerateResource.cache
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\bin\Debug\ProjectForm.exe.config
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\bin\Debug\ProjectForm.exe
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\bin\Debug\ProjectForm.pdb
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\obj\Debug\ProjectForm.Form1.resources
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\obj\Debug\ProjectForm.exe
-C:\Users\kakas\Desktop\Studia\CSharp\ProjectForm\obj\Debug\ProjectForm.pdb
