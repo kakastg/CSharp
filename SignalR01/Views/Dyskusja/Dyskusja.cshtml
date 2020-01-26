@@ -8,12 +8,12 @@
 
 <div class="container">
     <p>
-        <input type="text" id="tresc"/>
-        <input type="button" value="Wyślij" id="wyslij"/>
+        <input type="text" id="tresc" />
+        <input type="button" value="Wyślij" id="wyslij" />
     </p>
 
     <p>
-        <ul id="komunikaty">    
+        <ul id="komunikaty">
         </ul>
     </p>
 </div>
@@ -21,15 +21,16 @@
 @section scripts
 {
     <script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
     <script src="~/signalr/hubs"></script>
     <script>
         $(function () {
             var dyskusja = $.connection.AutorskiHub;
             dyskusja.client.wyswietlWiadomosc = function (tresc) {
-                $('komunikaty').append('<li>' + tresc + '</li>');
+                $('#komunikaty').append('<li>' + tresc + '</li>');
             };
             $.conection.hub.start().done(function () {
-                $('#wyslij').click(function(){
+                $('#wyslij').click(function () {
                     dyskusja.server.wyslijBezNicka($('#tresc').val());
                 });
             });

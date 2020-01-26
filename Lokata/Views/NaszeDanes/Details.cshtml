@@ -1,0 +1,58 @@
+﻿@model DyskusjaSR.Models.NaszeDane
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NaszeDane</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NazwaBanku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaBanku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KapitałPoczątkowy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KapitałPoczątkowy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRozpoczęcia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRozpoczęcia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oprocentowanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oprocentowanie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zysk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zysk)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Czat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Czat</h2>
+
+<div class="container">
+    <p id="dyskutanci"></p>
+    <p>
+        <input type="hidden" id="nick" />
+        <input type="text" id="tresc" />
+        <input type="button" id="wyslij" value="Wyślij" />
+    </p>
+    <p id='komunikaty' style="text-decoration:underline;"></p>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            var dyskusja = $.connection.AutorskiHub;
+
+            dyskusja.client.wyswietlWiadomosc = function (tresc, nick) {
+                $('#komunikaty').append('<strong>' + nick + '</strong><i>' + tresc + '</i> <br>');
+            };
+            $('#nick').val(prompt('Wpisz swój nick: '));
+            $('#tresc').focus();
+
+            $.connection.hub.start().done(function () {
+                var wyslij = function () {
+                    dyskusja.server.wyslijZNickiem($('#tresc').val(), $('#nick').val());
+                    $('#tresc').val('').focus();
+                };
+                $('#wyslij').click(wyslij);
+                $('#tresc').keypress(function (wpisano) {
+                    if (wpisano.which == 13)
+                        wyslij();
+                });
+            });
+            
+        });
+    </script>
+}

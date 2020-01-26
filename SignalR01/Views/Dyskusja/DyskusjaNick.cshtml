@@ -27,7 +27,7 @@
         $(function () {
             var dyskusja = $.connection.AutorskiHub;
             dyskusja.client.wyswietlWiadomosc = function (tresc) {
-                $('komunikaty').append('<li>' + tresc + '</li>');
+                $('#komunikaty').append('<li>' + tresc + '</li>');
             };
             $.conection.hub.start().done(function () {
                 $('#wyslij').click(function(){

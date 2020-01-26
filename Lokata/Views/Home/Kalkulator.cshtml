@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Kalkulator Lokat";
+}
+<h2>@ViewBag.Title.</h2>
+
+<div style="text-align: center">
+    <br>
+    <br>
+    <h2 style="text-align: center">Sprawdź, czy warto, zanim zdecydujesz się na lokate!!</h2>
+    <p style="text-align: center">Upewnij się czy proponowana tobie lokata jest naprawdę taka dobra.</p><br><br>
+    <label><b>Kapitał początkowy: </b></label><br>
+    <input type="number" step="100" min="0" id="pole" />
+    <div id="error" style="color: red"> </div>
+
+    <label><b>Oprocentowanie:</b> </label><br>
+    <input type="number" step="0.1" min="0.1" id="pole2" />
+    <div id="error2" style="color: red"> </div>
+
+    <label><b>Okres trwania: </b></label><br>
+
+    <input type="number" step="1" min="1" id="pole3" /> <br><br>
+    <select id="okres">
+        <option>dni</option>
+        <option>tygodnie</option>
+        <option selected>miesiące</option>
+        <option>lata</option>
+    </select><br>
+    <div id="error3" style="color: red"> </div><br>
+
+
+
+    <input type="submit" value="Sprawdź" onclick="sprawdz()" /><br><br>
+
+    <div id="wynik"></div>
+    <div id="wynik2"></div>
+    <div id="wynik3"></div>
+    <div id="inflacja"></div>
+    <div id="inflacja2" style="color: red"></div>
+    <div id="inflacja21" style="color: green"></div>
+    <div id="inflacja22"></div><br>
+    <div id="wykres" style="width: 500px; margin-left: auto; margin-right: auto;"></div>
+
+
+</div>
+@section scripts {
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        function sprawdz() /* dla standardowej lokaty*/ {
+            var liczba = document.getElementById("pole").value;
+            var liczba2 = document.getElementById("pole2").value;
+            var liczba3 = document.getElementById("pole3").value;
+            var okres = document.getElementById("okres").value;
+
+
+            /*sprawdzenie liczb*/
+
+            if (liczba > 0)
+                document.getElementById("error").innerHTML = "";
+            else if (liczba == "0" || liczba < 0)
+                document.getElementById("error").innerHTML = "Wartość musi być dodatnia";
+            else if (liczba > 100000)
+                document.getElementById("error").innerHTML = "Podaj realną wartość kapitału początkowego";
+            else
+                document.getElementById("error").innerHTML = "To nie liczba";
+
+            if (liczba2 > 0 && liczba2 <= 20)
+                document.getElementById("error2").innerHTML = "";
+            else if (liczba2 == "0" || liczba2 < 0)
+                document.getElementById("error2").innerHTML = "Oprocentowanie musi byc dodatnie";
+            else if (liczba2 > 20)
+                document.getElementById("error2").innerHTML = "Nie ma takiego oprocentowania lokaty";
+            else
+                document.getElementById("error2").innerHTML = "To nie liczba";
+
+            if (okres == "lata" && liczba3 > 0 && liczba3 < 100 || okres == "miesiące" && liczba3 > 0 && liczba3 < 36 || okres == "tygodnie" && liczba3 > 0 && liczba3 < 52 || okres == "dni" && liczba3 > 0 && liczba3 < 365)
+                document.getElementById("error3").innerHTML = "";
+            else if (liczba3 == "0" || liczba3 < 0)
+                document.getElementById("error3").innerHTML = "Wartość musi być większa od zera";
+            else if (okres == "lata" && liczba3 >= 100 || okres == "miesiące" && liczba3 >= 36 || okres == "tygodnie" && liczba3 >= 52 || okres == "dni" && liczba3 >= 365)
+                document.getElementById("error3").innerHTML = "Wartość nie mieści się do podanego okresu";
+            else
+                document.getElementById("error3").innerHTML = "To nie liczba";
+            /* Liczenie */
+
+
+            if ((liczba3 <= 365 && okres == "dni") || (liczba3 <= 52 && okres == "tygodnie") || (liczba3 <= 36 && okres == "miesiące") || (liczba3 <= 100 && okres == "lata")) {
+                if (liczba > 0 && liczba2 > 0 && liczba2 <= 20 && liczba > 0 && liczba3 > 0) {
+                    if (okres == "lata") {
+                        var w = (liczba * liczba2 / 100 * liczba3).toFixed(2);
+                        var w2 = (w * 0.19).toFixed(2);
+                        var w3 = (w - w2).toFixed(2);
+                        var l = (liczba * (1 + liczba2 / 100 * liczba3 / 365 * 0.81)) * (1 - 0.03 / 365);
+
+                        document.getElementById("wynik").innerHTML = "Zysk z lokaty przed podatkiem wynosi :" + w + " zł";
+                        document.getElementById("wynik2").innerHTML = "Podatek od zysków kapitałowych wynosi: " + w2 + " zł";
+                        document.getElementById("wynik3").innerHTML = "Rzeczywisty zysk z lokaty wynosi: " + w3 + " zł";
+                        document.getElementById("inflacja").innerHTML = "Po uwzględnieniu inflacji, twoje " + liczba + " zł na koniec lokaty będzie miało wartość: " + (l.toFixed(2)) + " zł.";
+                        if (liczba - l >= 0) {
+                            document.getElementById("inflacja2").innerHTML = "Przykro mi ale ta lokata nie jest dla ciebie dobra.";
+                            document.getElementById("inflacja21").innerHTML = "";
+                        }
+                        else if (liczba - l < 0) {
+                            document.getElementById("inflacja21").innerHTML = "Ta lokata przyniesie tobie zysk !";
+                            document.getElementById("inflacja2").innerHTML = "";
+                        }
+                    }
+                    else if (okres == "miesiące") {
+                        var w = (liczba * liczba2 / 100 * liczba3 / 12).toFixed(2);
+                        var w2 = (w * 0.19).toFixed(2);
+                        var w3 = (w - w2).toFixed(2);
+                        var l = (liczba * (1 + liczba2 / 100 * liczba3 / 365 * 0.81)) * (1 - 0.03 / 365);
+
+                        document.getElementById("wynik").innerHTML = "Zysk z lokaty przed podatkiem wynosi :" + w + " zł";
+                        document.getElementById("wynik2").innerHTML = "Podatek od zysków kapitałowych wynosi: " + w2 + " zł";
+                        document.getElementById("wynik3").innerHTML = "Rzeczywisty zysk z lokaty wynosi: " + w3 + " zł";
+                        document.getElementById("inflacja").innerHTML = "Po uwzględnieniu inflacji, twoje " + liczba + " zł na koniec lokaty będzie miało wartość: " + (l.toFixed(2)) + " zł.";
+                        if (liczba - l >= 0) {
+                            document.getElementById("inflacja2").innerHTML = "Przykro mi ale ta lokata nie jest dla ciebie dobra.";
+                            document.getElementById("inflacja21").innerHTML = "";
+                        }
+                        else if (liczba - l < 0) {
+                            document.getElementById("inflacja21").innerHTML = "Ta lokata przyniesie tobie zysk !";
+                            document.getElementById("inflacja2").innerHTML = "";
+                        }
+                    }
+                    else if (okres == "tygodnie") {
+                        var w = (liczba * liczba2 / 100 * liczba3 / 52).toFixed(2);
+                        var w2 = (w * 0.19).toFixed(2);
+                        var w3 = (w - w2).toFixed(2);
+                        var l = (liczba * (1 + liczba2 / 100 * liczba3 / 365 * 0.81)) * (1 - 0.03 / 365);
+
+                        document.getElementById("wynik").innerHTML = "Zysk z lokaty przed podatkiem wynosi :" + w + " zł";
+                        document.getElementById("wynik2").innerHTML = "Podatek od zysków kapitałowych wynosi: " + w2 + " zł";
+                        document.getElementById("wynik3").innerHTML = "Rzeczywisty zysk z lokaty wynosi: " + w3 + " zł";
+                        document.getElementById("inflacja").innerHTML = "Po uwzględnieniu inflacji, twoje " + liczba + " zł na koniec lokaty będzie miało wartość: " + (l.toFixed(2)) + " zł.";
+                        if (liczba - l >= 0) {
+                            document.getElementById("inflacja2").innerHTML = "Przykro mi ale ta lokata nie jest dla ciebie dobra.";
+                            document.getElementById("inflacja21").innerHTML = "";
+                        }
+                        else if (liczba - l < 0) {
+                            document.getElementById("inflacja21").innerHTML = "Ta lokata przyniesie tobie zysk !";
+                            document.getElementById("inflacja2").innerHTML = "";
+                        }
+                    }
+                    else if (okres == "dni") {
+                        var w = (liczba * liczba2 / 100 * liczba3 / 365).toFixed(2);
+                        var w2 = (w * 0.19).toFixed(2);
+                        var w3 = (w - w2).toFixed(2);
+                        var l = (liczba * (1 + liczba2 / 100 * liczba3 / 365 * 0.81)) * (1 - 0.03 / 365);
+
+                        document.getElementById("wynik").innerHTML = "Zysk z lokaty przed podatkiem wynosi :" + w + " zł";
+                        document.getElementById("wynik2").innerHTML = "Podatek od zysków kapitałowych wynosi: " + w2 + " zł";
+                        document.getElementById("wynik3").innerHTML = "Rzeczywisty zysk z lokaty wynosi: " + w3 + " zł";
+                        document.getElementById("inflacja").innerHTML = "Po uwzględnieniu inflacji, twoje " + liczba + " zł na koniec lokaty będzie miało wartość: " + (l.toFixed(2)) + " zł.";
+                        if (liczba - l >= 0) {
+                            document.getElementById("inflacja2").innerHTML = "Przykro mi ale ta lokata nie jest dla ciebie dobra.";
+                            document.getElementById("inflacja21").innerHTML = "";
+                        }
+                        else if (liczba - l < 0) {
+                            document.getElementById("inflacja21").innerHTML = "Ta lokata przyniesie tobie zysk !";
+                            document.getElementById("inflacja2").innerHTML = "";
+                        }
+
+                    }
+
+                    var chart = new CanvasJS.Chart("wykres", {
+                        animationEnabled: true, /* czy bedzie animacja */
+                        title:
+                        {
+                            text: "Struktura zysku z lokaty"
+                        },
+                        data: [{
+                            type: "pie",
+                            startAngle: 240, /* w innym miejscu zaczyna rysowac wykres*/
+                            indexLabel: "{label} {y}",
+                            dataPoints: [
+                                { y: w2, label: "Podatek Belki" },
+                                { y: w3, label: "Zysk Netto" }
+                            ]
+                        }]
+                    });
+                    chart.render();
+                }
+                else {
+                    document.getElementById("wynik").innerHTML = "Popraw wpisane wartości!!!!!";
+                    document.getElementById("wynik2").innerHTML = "";
+                    document.getElementById("wynik3").innerHTML = "";
+                    document.getElementById("wykres").innerHTML = "";
+                    document.getElementById("inflacja2").innerHTML = "";
+                    document.getElementById("inflacja21").innerHTML = "";
+                    document.getElementById("inflacja").innerHTML = "";
+                }
+            }
+            else {
+                document.getElementById("wynik").innerHTML = "Zmień okres trwania na prawidłowy!";
+                document.getElementById("wynik2").innerHTML = "";
+                document.getElementById("wynik3").innerHTML = "";
+                document.getElementById("wykres").innerHTML = "";
+                document.getElementById("inflacja2").innerHTML = "";
+                document.getElementById("inflacja21").innerHTML = "";
+                document.getElementById("inflacja").innerHTML = "";
+            }
+        }
+    </script>
+}
